@@ -1,6 +1,24 @@
 .footer {
   background-color: #f3dadb;
   text-align: center;
+  margin-top: auto;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  min-height: 120px;
+}
+
+/* Ensure the main app takes at least full viewport height and pushes footer down */
+body, #root, .App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer img {

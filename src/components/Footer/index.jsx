@@ -7,22 +7,22 @@ const Footer = () => {
       <img src="/images/Footer.png" alt="Imagem de rodapé do Organo"></img>
       <div className="footer-links">
         <a
-          href="https://github.com/your-github-username"
+          href="https://github.com/odrgues"
           target="_blank"
           rel="noopener noreferrer"
         >
-          GitHub Profile 1
+          GitHub Profile
         </a>
         <span className="footer-separator">|</span>
         <a
-          href="https://github.com/other-github-username"
+          href="https://github.com/RafaelPalomino18"
           target="_blank"
           rel="noopener noreferrer"
         >
-          GitHub Profile 2
+          GitHub Profile
         </a>
         <span className="footer-separator">|</span>
-        <Link to="/about">About Us</Link>
+        <Link to="/about">Sobre nós</Link>
       </div>
     </footer>
   );

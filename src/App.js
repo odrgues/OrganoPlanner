@@ -1,12 +1,13 @@
 import Banner from "./components/Banner";
 import Footer from "./components/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TaskForm from "./components/TaskForm";
 import Button from "./components/Button";
 import TaskCard from "./components/TaskCard";
 import TaskList from "./components/TaskList";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import AboutUs from "./components/AboutUs";
+import { fetchTasks, addTask, updateTask, deleteTask, toggleTask } from "./api";
 
 function App() {
   const location = useLocation();
@@ -53,17 +54,20 @@ function App() {
     },
   ];
 
-  const handleAddTask = (taskData) => {
-    const dia = dropdownItems.find((item) => item.nome === taskData.category);
-    setTaskscards((prev) => [
-      ...prev,
-      {
-        ...taskData,
-        corPrimaria: dia ? dia.corPrimaria : "#ccc",
-        corSecundaria: dia ? dia.corSecundaria : "#eee",
-        concluida: false,
-      },
-    ]);
+  useEffect(() => {
+    // Carrega as tarefas da API ao iniciar
+    fetchTasks()
+      .then(setTaskscards)
+      .catch(() => setTaskscards([]));
+  }, []);
+
+  const handleAddTask = async (taskData) => {
+    try {
+      const newTask = await addTask(taskData);
+      setTaskscards((prev) => [...prev, newTask]);
+    } catch {
+      // Trate erros de API aqui
+    }
     setShowForm(false);
     setEditMode(false);
     setEditTaskIndex(null);
@@ -75,38 +79,38 @@ function App() {
     setShowForm(true);
   };
 
-  const handleSaveEdit = (taskData) => {
-    const dia = dropdownItems.find((item) => item.nome === taskData.category);
-    setTaskscards((prev) =>
-      prev.map((task, idx) =>
-        idx === editTaskIndex
-          ? {
-              ...taskData,
-              corPrimaria: dia ? dia.corPrimaria : "#ccc",
-              corSecundaria: dia ? dia.corSecundaria : "#eee",
-              concluida: task.concluida || false,
-            }
-          : task
-      )
-    );
+  const handleSaveEdit = async (taskData) => {
+    try {
+      const id = taskscards[editTaskIndex]?.id;
+      const updated = await updateTask(id, taskData);
+      setTaskscards((prev) =>
+        prev.map((task, idx) => (idx === editTaskIndex ? updated : task))
+      );
+    } catch {}
     setEditTaskIndex(null);
     setEditMode(false);
     setShowForm(false);
   };
 
-  const handleDeleteTask = () => {
-    setTaskscards((prev) => prev.filter((_, idx) => idx !== editTaskIndex));
+  const handleDeleteTask = async () => {
+    try {
+      const id = taskscards[editTaskIndex]?.id;
+      await deleteTask(id);
+      setTaskscards((prev) => prev.filter((_, idx) => idx !== editTaskIndex));
+    } catch {}
     setEditTaskIndex(null);
     setEditMode(false);
     setShowForm(false);
   };
 
-  const handleToggleConcluir = () => {
-    setTaskscards((prev) =>
-      prev.map((task, idx) =>
-        idx === editTaskIndex ? { ...task, concluida: !task.concluida } : task
-      )
-    );
+  const handleToggleConcluir = async () => {
+    try {
+      const id = taskscards[editTaskIndex]?.id;
+      const updated = await toggleTask(id);
+      setTaskscards((prev) =>
+        prev.map((task, idx) => (idx === editTaskIndex ? updated : task))
+      );
+    } catch {}
     setEditTaskIndex(null);
     setEditMode(false);
     setShowForm(false);
@@ -139,6 +143,14 @@ function App() {
       )
     );
   };
+
+  useEffect(() => {
+    if (location.pathname === "/about") {
+      setShowForm(false);
+      setEditMode(false);
+      setEditTaskIndex(null);
+    }
+  }, [location.pathname]);
 
   return (
     <div className="App">
