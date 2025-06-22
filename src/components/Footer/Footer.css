@@ -1,0 +1,34 @@
+.footer {
+  background-color: #f3dadb;
+  text-align: center;
+}
+
+.footer img {
+  max-width: 100%;
+}
+
+.footer-links {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  font-size: 1.1rem;
+}
+
+.footer-links a,
+.footer-links .footer-separator,
+.footer-links .footer-links {
+  color: #6278f7;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #4053b7;
+  text-decoration: underline;
+}
+
+.footer-separator {
+  color: #bbb;
+  margin: 0 8px;
+}

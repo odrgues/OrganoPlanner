@@ -1,0 +1,107 @@
+.task-list {
+  border-radius: 18px;
+  margin: 32px 0 40px 0;
+  padding: 24px 32px 32px 32px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07), 0 1.5px 4px rgba(0, 0, 0, 0.04);
+  background: none;
+}
+
+.task-list h3 {
+  font-size: 32px;
+  border-bottom: 4px solid;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.task-list-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  border-bottom: 3px solid #e0e0e0;
+  padding-bottom: 6px;
+  color: #333;
+  letter-spacing: 0.5px;
+}
+
+.task-list-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: flex-start;
+}
+
+.task-list-card-wrapper {
+  flex: 1 1 340px;
+  max-width: 420px;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: box-shadow 0.2s;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 2px solid var(--primary-color, #e0e0e0);
+}
+
+.task-list {
+  background: var(--secondary-color, #f7f7fa);
+}
+
+.task-list-card-wrapper:hover {
+  box-shadow: 0 4px 16px rgba(80, 80, 120, 0.1);
+  z-index: 2;
+}
+
+.task-card-edit-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.edit-icon-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.task-list-card-wrapper:hover .edit-icon-btn,
+.task-card-edit-wrapper:hover .edit-icon-btn,
+.task-card-edit-wrapper:focus-within .edit-icon-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.edit-icon-btn svg {
+  pointer-events: none;
+  display: block;
+}
+
+.task-form {
+  width: 95%;
+  max-width: 540px;
+  margin: 18px auto 8px auto;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: #f6f6f6;
+  padding: 18px 24px;
+}
+
+.add-task-btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0 0 0;
+}

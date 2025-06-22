@@ -1,0 +1,22 @@
+.dropdown-list {
+  width: 100%;
+}
+
+.dropdown-list label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.dropdown-list select {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.dropdown-list select:focus {
+  outline: none;
+}

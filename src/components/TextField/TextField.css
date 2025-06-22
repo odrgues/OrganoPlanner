@@ -1,0 +1,30 @@
+.text-field {
+  margin: 20px 0;
+}
+
+.text-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.text-field input {
+  background-color: #fff;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  border: none;
+  font-size: 14px;
+  padding: 14px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.text-field input:focus {
+  outline: none;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.text-field input::placeholder {
+  color: #aaa;
+  font-size: 18px;
+}
