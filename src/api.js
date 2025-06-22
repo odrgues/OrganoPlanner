@@ -1,23 +1,29 @@
-import axios from "axios";
+const API_URL = "http://localhost:3000/tarefa";
 
-const API_URL = "http://localhost:3000/tarefa"; // endpoint correto
+export async function fetchTasks() {
+  const response = await fetch(API_URL);
+  return response.json();
+}
 
-export const fetchTasks = async () => {
-  const response = await axios.get(API_URL);
-  return response.data;
-};
+export async function addTask(task) {
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(task),
+  });
+  return response.json();
+}
 
-export const addTask = async (task) => {
-  // task deve conter: titulo, descricao, imagemUrl, categoria
-  const response = await axios.post(API_URL, task);
-  return response.data;
-};
+export async function updateTask(id, task) {
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(task),
+  });
+  return response.json();
+}
 
-export const updateTask = async (id, task) => {
-  const response = await axios.put(`${API_URL}/${id}`, task);
-  return response.data;
-};
-
-export const deleteTask = async (id) => {
-  await axios.delete(`${API_URL}/${id}`);
-};
+export async function deleteTask(id) {
+  if (!id) return;
+  await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+}

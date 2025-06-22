@@ -79,104 +79,23 @@ function App() {
     try {
       const newTask = await addTask(taskData);
       setTaskscards((prev) => [...prev, mapTask(newTask)]);
-    } catch (err) {
-      console.error("Erro ao adicionar tarefa:", err);
-      alert(
-        "Erro ao adicionar tarefa. Verifique a conexão com o backend.\n" +
-          (err?.response?.data?.error || err.message)
-      );
-    }
+    } catch (err) {}
     setShowForm(false);
     setEditMode(false);
     setEditTaskIndex(null);
-  };
-
-  const handleEditTask = (index) => {
-    setEditTaskIndex(index);
-    setEditMode(true);
-    setShowForm(true);
-  };
-
-  const handleSaveEdit = async (taskData) => {
-    try {
-      // Sempre use o _id real
-      const id =
-        taskData._id ||
-        taskData.id ||
-        taskscards[editTaskIndex]?._id ||
-        taskscards[editTaskIndex]?.id;
-      const payload = {
-        ...taskData,
-        _id: id,
-      };
-      console.log(
-        "PUT id:",
-        id,
-        "payload:",
-        payload,
-        "campos enviados:",
-        Object.keys(payload)
-      );
-      const updated = await updateTask(id, payload);
-      const updatedTasks = await fetchTasks();
-      setTaskscards(updatedTasks.map(mapTask));
-    } catch (err) {
-      console.error("Erro ao editar tarefa:", err);
-      alert(
-        "Erro ao editar tarefa.\n" + (err?.response?.data?.error || err.message)
-      );
-    }
-    setEditTaskIndex(null);
-    setEditMode(false);
-    setShowForm(false);
   };
 
   const handleDeleteTask = async (idx, id) => {
     try {
       const taskId =
         id || taskscards[editTaskIndex]?._id || taskscards[editTaskIndex]?.id;
-      console.log("DELETE id:", taskId);
       await deleteTask(taskId);
       const updatedTasks = await fetchTasks();
       setTaskscards(updatedTasks.map(mapTask));
-    } catch (err) {
-      console.error("Erro ao deletar tarefa:", err);
-      alert(
-        "Erro ao deletar tarefa.\n" +
-          (err?.response?.data?.error || err.message)
-      );
-    }
+    } catch (err) {}
     setEditTaskIndex(null);
     setEditMode(false);
     setShowForm(false);
-  };
-
-  const handleSaveEditIdx = (taskData, idx) => {
-    const dia = dropdownItems.find((item) => item.nome === taskData.category);
-    setTaskscards((prev) =>
-      prev.map((task, i) =>
-        i === idx
-          ? {
-              ...taskData,
-              corPrimaria: dia ? dia.corPrimaria : "#ccc",
-              corSecundaria: dia ? dia.corSecundaria : "#eee",
-              concluida: task.concluida || false,
-            }
-          : task
-      )
-    );
-  };
-
-  const handleDeleteTaskIdx = (idx) => {
-    setTaskscards((prev) => prev.filter((_, i) => i !== idx));
-  };
-
-  const handleToggleConcludeIdx = (idx) => {
-    setTaskscards((prev) =>
-      prev.map((task, i) =>
-        i === idx ? { ...task, concluida: !task.concluida } : task
-      )
-    );
   };
 
   const handleToggleConcluir = async (idx, id) => {
@@ -191,27 +110,41 @@ function App() {
         concluida: !current.concluida,
         _id: taskId,
       };
-      console.log(
-        "TOGGLE id:",
-        taskId,
-        "payload:",
-        payload,
-        "campos enviados:",
-        Object.keys(payload)
-      );
       await updateTask(taskId, payload);
       const updatedTasks = await fetchTasks();
       setTaskscards(updatedTasks.map(mapTask));
-    } catch (err) {
-      console.error("Erro ao concluir tarefa:", err);
-      alert(
-        "Erro ao concluir tarefa.\n" +
-          (err?.response?.data?.error || err.message)
-      );
-    }
+    } catch (err) {}
     setEditTaskIndex(null);
     setEditMode(false);
     setShowForm(false);
+  };
+
+  const handleSaveEdit = async (taskData) => {
+    try {
+      const id =
+        taskData._id ||
+        taskData.id ||
+        taskscards[editTaskIndex]?._id ||
+        taskscards[editTaskIndex]?.id;
+      const payload = {
+        ...taskData,
+        _id: id,
+      };
+      await updateTask(id, payload);
+      const updatedTasks = await fetchTasks();
+      setTaskscards(updatedTasks.map(mapTask));
+    } catch (err) {}
+    setEditTaskIndex(null);
+    setEditMode(false);
+    setShowForm(false);
+  };
+
+  const handleToggleConcludeIdx = (idx) => {
+    setTaskscards((prev) =>
+      prev.map((task, i) =>
+        i === idx ? { ...task, concluida: !task.concluida } : task
+      )
+    );
   };
 
   useEffect(() => {
@@ -243,11 +176,9 @@ function App() {
       {showForm && (
         <TaskForm
           onSubmit={(...args) => {
-            console.log("TaskForm onSubmit chamado", ...args);
             (editMode ? handleSaveEdit : handleAddTask)(...args);
           }}
           onClose={() => {
-            console.log("TaskForm onClose chamado");
             setShowForm(false);
             setEditMode(false);
             setEditTaskIndex(null);
@@ -261,7 +192,6 @@ function App() {
           onDelete={
             editMode
               ? (...args) => {
-                  console.log("TaskForm onDelete chamado", ...args);
                   handleDeleteTask(...args);
                 }
               : undefined
@@ -269,7 +199,6 @@ function App() {
           onConclude={
             editMode
               ? (...args) => {
-                  console.log("TaskForm onConclude chamado", ...args);
                   handleToggleConcluir(...args);
                 }
               : undefined
@@ -294,25 +223,9 @@ function App() {
                     secondaryColor={item.corSecundaria}
                     dayName={item.nome}
                     onSaveEdit={(data, taskIdx) => {
-                      // Chama o update no backend ao editar pelo TaskList
                       handleSaveEdit({ ...data, _id: data._id || data.id });
                     }}
-                    onDelete={(taskIdx) => {
-                      // Chama o delete no backend ao deletar pelo TaskList
-                      const globalIdx = taskscards.findIndex(
-                        (t, i) => t.categoria === item.nome && i === taskIdx
-                      );
-                      const task = taskscards[globalIdx];
-                      if (task) {
-                        console.log(
-                          "DELETE pelo TaskList",
-                          globalIdx,
-                          task._id,
-                          task
-                        );
-                        handleDeleteTask(globalIdx, task._id || task.id);
-                      }
-                    }}
+                    onDelete={handleDeleteTask}
                     onConclude={(taskIdx) => {
                       const globalIdx = taskscards.findIndex(
                         (t, i) => t.categoria === item.nome && i === taskIdx
