@@ -1,75 +1,70 @@
-# OrganoPlanner
-OrganoPlanner é um gerenciador de tarefas semanal com estrutura visual tipo organograma. Organize, priorize e acompanhe suas atividades diárias com clareza e eficiência.
+# Organo Planner
 
----
+Organo Planner é um planner semanal desenvolvido em React, com backend integrado, que permite o gerenciamento completo de tarefas (CRUD) de forma simples e visual.
 
-# Getting Started with Create React App
+## Funcionalidades
+- **Adicionar tarefa**: Crie tarefas com título, descrição, imagem, categoria (dia da semana).
+- **Editar tarefa**: Altere qualquer campo de uma tarefa existente.
+- **Excluir tarefa**: Remova tarefas do planner.
+- **Concluir tarefa**: Marque tarefas como concluídas (visual acinzentado).
+- **Visualização por dia**: As tarefas são organizadas por dias da semana, cada um com sua cor.
+- **Feedback visual**: Cards de tarefas concluídas ficam acinzentados, mantendo a cor secundária do dia.
+- **Integração total com backend**: Todas as operações refletem imediatamente no backend e na interface.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Estrutura do Projeto
 
-## Available Scripts
+```
+organo-planner/
+├── public/
+│   └── ...
+├── src/
+│   ├── api.js           # Funções de integração com o backend (fetch, add, update, delete)
+│   ├── App.js           # Componente principal, roteamento e lógica global
+│   ├── index.js         # Ponto de entrada do React
+│   ├── index.css        # Estilos globais
+│   └── components/
+│       ├── AboutUs/     # Página sobre
+│       ├── Banner/      # Banner do topo
+│       ├── Button/      # Botão reutilizável
+│       ├── DropdownList/# Lista suspensa de categorias
+│       ├── Footer/      # Rodapé
+│       ├── TaskCard/    # Card de tarefa individual
+│       ├── TaskForm/    # Formulário de criação/edição de tarefa
+│       ├── TaskList/    # Lista de tarefas por dia
+│       └── TextField/   # Campo de texto reutilizável
+├── package.json
+└── README.md            # Este arquivo
+```
 
-In the project directory, you can run:
+## Como rodar o projeto
 
-### `npm start`
+1. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+2. **Inicie o backend** (certifique-se de que o backend está rodando na porta 3000, endpoint `/tarefa`).
+3. **Inicie o frontend:**
+   ```bash
+   npm start
+   ```
+4. Acesse [http://localhost:3000](http://localhost:3000) no navegador.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Endpoints esperados pelo frontend
+- `GET    /tarefa`         → Lista todas as tarefas
+- `POST   /tarefa`         → Cria uma nova tarefa
+- `PUT    /tarefa/:id`     → Atualiza uma tarefa existente
+- `DELETE /tarefa/:id`     → Remove uma tarefa
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Principais arquivos e responsabilidades
+- **App.js**: Controla o estado global das tarefas, roteamento e handlers principais.
+- **api.js**: Funções para comunicação com o backend usando fetch.
+- **TaskList/**: Lista de tarefas de cada dia, permite editar/concluir/excluir.
+- **TaskForm/**: Formulário para criar e editar tarefas.
+- **TaskCard/**: Exibe visualmente cada tarefa.
 
-### `npm test`
+## Observações
+- O visual é responsivo e pronto para apresentação.
+- O projeto pode ser facilmente adaptado para outros backends que sigam o mesmo padrão de endpoints e campos.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Autores
+- Projeto desenvolvido por Jessica Rodrigues e Rafael Alvarenga.
