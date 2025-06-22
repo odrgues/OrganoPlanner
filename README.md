@@ -1,7 +1,8 @@
-<<<<<<< HEAD
 # OrganoPlanner
-OrganoPlanner é um gerenciador de tarefas semanal com estrutura visual tipo organograma. Organize, priorize e acompanhe suas atividades diárias com clareza e eficiência. 
-=======
+OrganoPlanner é um gerenciador de tarefas semanal com estrutura visual tipo organograma. Organize, priorize e acompanhe suas atividades diárias com clareza e eficiência.
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -72,4 +73,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
->>>>>>> 8577ca2 (Initialize project using Create React App)
