@@ -29,7 +29,7 @@ const TaskList = ({
       <div className="task-list-cards">
         {tasks.map((task, idx) => (
           <div
-            key={task.title + task.category + idx}
+            key={task.titulo + task.categoria + idx}
             className="task-list-card-wrapper"
             style={{ cursor: "pointer" }}
             onMouseEnter={(e) => {
@@ -43,12 +43,15 @@ const TaskList = ({
           >
             <div className="task-card-edit-wrapper">
               <TaskCard
-                title={task.title}
-                description={task.description}
-                image={task.image}
+                titulo={task.titulo}
+                descricao={task.descricao}
+                imagemUrl={task.imagemUrl}
                 primaryColor={primaryColor}
                 secondaryColor={secondaryColor}
-                completed={task.completed}
+                concluida={task.concluida}
+                id={task.id}
+                // Adiciona classe para visual acinzentado se concluída
+                className={task.concluida ? "concluida" : ""}
               />
               <button
                 className="edit-icon-btn"
@@ -59,8 +62,10 @@ const TaskList = ({
                 }}
                 onClick={(e) => {
                   e.stopPropagation();
+                  console.log("Clicou em editar", idx, task.id, task);
                   setEditingTaskIndex(idx);
                 }}
+                data-id={task.id}
               >
                 <svg
                   width="22"
@@ -76,25 +81,58 @@ const TaskList = ({
                   <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
                 </svg>
               </button>
+              {/* Só mostra o container do formulário se este card está em edição */}
               {editingTaskIndex === idx && (
-                <TaskForm
-                  onSubmit={(data) => {
-                    onSaveEdit(data, idx);
-                    setEditingTaskIndex(null);
-                  }}
-                  onClose={() => setEditingTaskIndex(null)}
-                  dropdownItems={[]}
-                  initialData={task}
-                  onDelete={() => {
-                    onDelete && onDelete(idx);
-                    setEditingTaskIndex(null);
-                  }}
-                  onConclude={() => {
-                    onConclude && onConclude(idx);
-                    setEditingTaskIndex(null);
-                  }}
-                  editMode={true}
-                />
+                <div className="task-edit-form-wrapper">
+                  <TaskForm
+                    onSubmit={(data) => {
+                      console.log(
+                        "onSubmit edição disparado",
+                        data,
+                        idx,
+                        task.id,
+                        task
+                      );
+                      if (onSaveEdit)
+                        onSaveEdit(
+                          { ...data, id: task.id, _id: task._id },
+                          idx
+                        );
+                      setEditingTaskIndex(null);
+                    }}
+                    onClose={() => setEditingTaskIndex(null)}
+                    dropdownItems={
+                      dayName
+                        ? [
+                            dayName,
+                            ...tasks
+                              .map((t) => t.categoria)
+                              .filter(
+                                (c, i, arr) =>
+                                  arr.indexOf(c) === i && c !== dayName
+                              ),
+                          ]
+                        : []
+                    }
+                    initialData={task}
+                    onDelete={() => {
+                      console.log(
+                        "onDelete disparado (TaskList)",
+                        idx,
+                        task.id,
+                        task
+                      );
+                      if (onDelete) onDelete(idx, task.id);
+                      setEditingTaskIndex(null);
+                    }}
+                    onConclude={() => {
+                      console.log("onConclude disparado", idx, task.id, task);
+                      if (onConclude) onConclude(idx, task.id);
+                      setEditingTaskIndex(null);
+                    }}
+                    editMode={true}
+                  />
+                </div>
               )}
             </div>
           </div>

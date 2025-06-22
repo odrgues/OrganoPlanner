@@ -13,30 +13,28 @@ const TaskForm = ({
   onConclude,
   editMode,
 }) => {
-  const [title, setTitle] = useState(initialData?.title || "");
-  const [description, setDescription] = useState(
-    initialData?.description || ""
-  );
-  const [image, setImage] = useState(initialData?.image || "");
-  const [category, setCategory] = useState(initialData?.category || "");
+  const [titulo, setTitulo] = useState(initialData?.titulo || "");
+  const [descricao, setDescricao] = useState(initialData?.descricao || "");
+  const [imagemUrl, setImagemUrl] = useState(initialData?.imagemUrl || "");
+  const [categoria, setCategoria] = useState(initialData?.categoria || "");
 
   useEffect(() => {
     if (initialData) {
-      setTitle(initialData.title || "");
-      setDescription(initialData.description || "");
-      setImage(initialData.image || "");
-      setCategory(initialData.category || "");
+      setTitulo(initialData.titulo || "");
+      setDescricao(initialData.descricao || "");
+      setImagemUrl(initialData.imagemUrl || "");
+      setCategoria(initialData.categoria || "");
     } else {
-      setTitle("");
-      setDescription("");
-      setImage("");
-      setCategory("");
+      setTitulo("");
+      setDescricao("");
+      setImagemUrl("");
+      setCategoria("");
     }
   }, [initialData, editMode]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ title, description, image, category });
+    onSubmit({ titulo, descricao, imagemUrl, categoria });
   };
 
   return (
@@ -46,29 +44,29 @@ const TaskForm = ({
       </h2>
       <TextField
         label="Título"
-        value={title}
-        onChange={setTitle}
+        value={titulo}
+        onChange={setTitulo}
         required
         placeholder="Digite o título da tarefa"
       />
       <TextField
         label="Descrição"
-        value={description}
-        onChange={setDescription}
+        value={descricao}
+        onChange={setDescricao}
         required
         placeholder="Digite a descrição da tarefa"
       />
       <TextField
         label="Imagem"
-        value={image}
-        onChange={setImage}
+        value={imagemUrl}
+        onChange={setImagemUrl}
         required
         placeholder="Digite o endereço da imagem"
       />
       <DropdownList
         label="Dia da Semana"
-        value={category}
-        onChange={setCategory}
+        value={categoria}
+        onChange={setCategoria}
         required
         items={dropdownItems}
       />

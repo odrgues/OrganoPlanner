@@ -26,23 +26,42 @@
 .task-list-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
-  justify-content: flex-start;
+  gap: 24px;
+  align-items: flex-start;
 }
 
 .task-list-card-wrapper {
-  flex: 1 1 340px;
-  max-width: 420px;
-  min-width: 320px;
+  position: relative;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.task-card-edit-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  transition: box-shadow 0.2s;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  border: 2px solid var(--primary-color, #e0e0e0);
+}
+
+.task-edit-form-wrapper {
+  width: 100%;
+  margin-top: 12px;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.task-card {
+  margin-bottom: 0;
+  z-index: 1;
+}
+
+/* Remove sobreposição e cantos arredondados extras */
+.task-card + .task-edit-form-wrapper {
+  margin-top: 0;
 }
 
 .task-list {

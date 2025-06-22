@@ -1,27 +1,27 @@
 import "./TaskCard.css";
 
 const TaskCard = ({
-  title,
-  description,
-  image,
+  titulo,
+  descricao,
+  imagemUrl,
   primaryColor,
   secondaryColor,
-  completed,
+  concluida,
   onClick,
 }) => {
   return (
     <div
-      className={`task-card${completed ? " completed" : ""}`}
+      className={`task-card${concluida ? " concluida" : ""}`}
       onClick={onClick}
       style={{ cursor: "pointer" }}
     >
-      <div className="header" style={{ backgroundColor: primaryColor }}>
-        <img src={image} alt={title} className="task-image" />
+      <div className="cabecalho" style={{ backgroundColor: primaryColor }}>
+        <img src={imagemUrl} alt={titulo} className="task-image" />
       </div>
-      <div className="footer" style={{ backgroundColor: secondaryColor }}>
-        <h4>{title}</h4>
-        <h5>{description}</h5>
-        {completed && <span className="completed-label">Completed</span>}
+      <div className="rodape" style={{ backgroundColor: secondaryColor }}>
+        <h4>{titulo}</h4>
+        <h5>{descricao}</h5>
+        {concluida && <span className="concluida-label">Concluída</span>}
       </div>
     </div>
   );

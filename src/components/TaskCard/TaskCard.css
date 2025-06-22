@@ -46,3 +46,11 @@
   padding: 2px 8px;
   margin-top: 8px;
 }
+
+.concluida {
+  background: #fff !important;
+  opacity: 1;
+  filter: grayscale(1);
+  pointer-events: none;
+  transition: filter 0.2s, opacity 0.2s;
+}
