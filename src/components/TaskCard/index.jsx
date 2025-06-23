@@ -18,7 +18,7 @@ const TaskCard = ({
       <div className="cabecalho" style={{ backgroundColor: primaryColor }}>
         <img src={imagemUrl} alt={titulo} className="task-image" />
       </div>
-      <div className="rodape" style={{ backgroundColor: secondaryColor }}>
+      <div className="rodape">
         <h4>{titulo}</h4>
         <h5>{descricao}</h5>
         {concluida && <span className="concluida-label">Concluída</span>}

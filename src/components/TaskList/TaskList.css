@@ -7,22 +7,22 @@
 }
 
 .task-list h3 {
-  font-size: 32px;
-  border-bottom: 4px dotted;
+  font-size: 27px;
+  border-bottom: 2px dotted;
   display: inline-block;
   padding-bottom: 8px;
   color: #333;
   text-align: center;
   width: 100%;
+  font-weight: lighter;
 }
 
 .task-list-title {
-  font-size: 1.5rem;
+  font-size: 01.5rem;
   font-weight: 600;
   margin-bottom: 18px;
   border-bottom: 3px solid #e0e0e0;
   padding-bottom: 6px;
-  color: #6278f7;
   letter-spacing: 0.5px;
 }
 
@@ -121,5 +121,5 @@
 .add-task-btn-container {
   display: flex;
   justify-content: center;
-  margin: 32px 0 0 0;
+  margin: 32px 0px 0 0;
 }

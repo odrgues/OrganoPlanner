@@ -1,8 +1,20 @@
 .banner {
   background-color: #f3dadb;
-  text-align: center;
+  background-image: url("/public/images/fundo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; /* ou 'contain' se preferir */
+  width: 100vw;
+  height: 250px; /* ou ajuste conforme desejar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
 .banner img {
-  max-width: 100%;
+  height: 100%;
+  width: auto;
+  z-index: 1;
 }

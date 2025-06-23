@@ -1,6 +1,7 @@
 .task-card {
   width: 320px;
   background: #fff;
+  background-color: #f8f6f2;
   border-radius: 16px;
   box-shadow: 0 2px 12px rgba(44, 62, 80, 0.1);
   margin: 24px auto;
