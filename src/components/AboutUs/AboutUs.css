@@ -1,0 +1,41 @@
+.about-us-container {
+  max-width: 600px;
+  margin: 0px auto 0 auto;
+  margin-bottom: 200px;
+  padding: 2rem 2.5rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.about-us-container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.about-us-container p {
+  font-size: 1.1rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .about-us-container {
+    padding: 1.2rem 1rem;
+    max-width: 95vw;
+  }
+  .about-us-container h2 {
+    font-size: 1.4rem;
+  }
+  .about-us-container p {
+    font-size: 1rem;
+  }
+}

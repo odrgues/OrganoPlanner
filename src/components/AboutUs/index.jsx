@@ -1,10 +1,22 @@
 import React from "react";
+import "./AboutUs.css";
 
 const AboutUs = () => (
-  <div style={{ maxWidth: 600, margin: "40px auto", padding: 24, background: "#fff", borderRadius: 12, boxShadow: "0 2px 16px rgba(0,0,0,0.08)" }}>
-    <h2>About Us</h2>
+  <div className="about-us-container">
+    <h2>Sobre nós</h2>
     <p>
-      Hello! My name is [Your Name]. I am the creator of this task planner. I am passionate about web development and building tools that help people organize their daily lives more efficiently. Thank you for using this app!
+      O Organo Planner foi criado com o objetivo de tornar a organização semanal
+      mais simples e agradável. Nós acreditamos que planejar o dia a dia não
+      precisa ser complicado — por isso desenvolvemos uma ferramenta visual,
+      intuitiva e fácil de usar. Aqui, as tarefas são organizadas por dia da
+      semana em um layout claro e colorido, facilitando a visualização e o
+      acompanhamento das atividades. Nosso foco é ajudar as pessoas a se
+      sentirem mais produtivas e no controle da sua rotina, seja nos estudos, no
+      trabalho ou na vida pessoal. Pensamos em cada detalhe para que a
+      experiência de uso fosse prática e eficiente, mas também leve e agradável.
+      Este projeto foi desenvolvido por Jessica Rodrigues e Rafael Alvarenga,
+      com dedicação e cuidado em cada etapa. Esperamos que o Organo Planner seja
+      útil para você assim como tem sido para nós.
     </p>
   </div>
 );

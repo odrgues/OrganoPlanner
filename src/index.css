@@ -42,7 +42,7 @@ h6 {
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
-  margin-top: 68px;
+  margin-top: 48px;
   margin-bottom: 32px;
   color: #6278f7;
   letter-spacing: 1px;
@@ -82,7 +82,6 @@ code {
     monospace;
 }
 
-/* Responsividade geral */
 body,
 #root,
 .App {
@@ -91,7 +90,6 @@ body,
   overflow-x: hidden;
 }
 
-/* Banner e Footer sempre 100vw */
 .banner,
 .footer {
   width: 100vw;
@@ -111,16 +109,16 @@ body,
   margin: 0 auto;
 }
 
-/* Títulos e container principal */
 .app-title {
   font-size: 2rem;
-  margin-top: 20px;
+  margin-top: 70px;
   margin-bottom: 20px;
 }
 
 @media (max-width: 1200px) {
   .app-title {
     font-size: 2rem;
+    margin-top: 70px;
   }
   .task-card,
   .task-form {
@@ -130,6 +128,8 @@ body,
 @media (max-width: 900px) {
   .app-title {
     font-size: 1.5rem;
+    margin-top: 70px;
+    margin-bottom: 20px;
   }
   .add-task-btn-container {
     margin-right: 16px;
@@ -146,7 +146,7 @@ body,
   }
   .app-title {
     font-size: 1.2rem;
-    margin-top: 12px;
+    margin-top: 70px;
     margin-bottom: 12px;
   }
   .add-task-btn-container {
@@ -162,7 +162,6 @@ body,
   }
 }
 
-/* Responsividade para TaskCard */
 .task-card {
   width: 100%;
   max-width: 260px;
@@ -187,7 +186,6 @@ body,
   }
 }
 
-/* Responsividade para listas de tarefas */
 .task-list {
   width: 100%;
   min-width: 0;
@@ -200,7 +198,6 @@ body,
   }
 }
 
-/* Responsividade para botões */
 .button {
   font-size: 1rem;
   padding: 12px 18px;
