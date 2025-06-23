@@ -54,7 +54,7 @@ const TaskList = ({
                 className={task.concluida ? "concluida" : ""}
                 onConclude={
                   !task.concluida && onConclude
-                    ? () => onConclude(idx, task.id)
+                    ? () => onConclude(task.id)
                     : undefined
                 }
               />
@@ -104,7 +104,7 @@ const TaskList = ({
                       setEditingTaskIndex(null);
                     }}
                     onConclude={() => {
-                      if (onConclude) onConclude(idx, task.id);
+                      if (onConclude) onConclude(task.id);
                       setEditingTaskIndex(null);
                     }}
                     editMode={true}
