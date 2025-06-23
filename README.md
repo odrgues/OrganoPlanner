@@ -11,6 +11,11 @@ Organo Planner é um planner semanal desenvolvido em React, com backend integrad
 - **Feedback visual**: Cards de tarefas concluídas ficam acinzentados, mantendo a cor secundária do dia.
 - **Integração total com backend**: Todas as operações refletem imediatamente no backend e na interface.
 
+
+## Design Figma do Projeto
+- **COLOCAR O LINK DE APRESENTACAO AQUI!!!
+
+
 ## Estrutura do Projeto
 
 ```
