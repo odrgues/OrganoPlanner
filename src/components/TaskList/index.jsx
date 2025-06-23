@@ -11,6 +11,7 @@ const TaskList = ({
   onSaveEdit,
   onDelete,
   onConclude,
+  allDays = [],
 }) => {
   const [editingTaskIndex, setEditingTaskIndex] = useState(null);
   if (!tasks || tasks.length === 0) return null;
@@ -91,19 +92,7 @@ const TaskList = ({
                       setEditingTaskIndex(null);
                     }}
                     onClose={() => setEditingTaskIndex(null)}
-                    dropdownItems={
-                      dayName
-                        ? [
-                            dayName,
-                            ...tasks
-                              .map((t) => t.categoria)
-                              .filter(
-                                (c, i, arr) =>
-                                  arr.indexOf(c) === i && c !== dayName
-                              ),
-                          ]
-                        : []
-                    }
+                    dropdownItems={allDays.length > 0 ? allDays : []}
                     initialData={task}
                     onDelete={() => {
                       if (onDelete) onDelete(idx, task.id);

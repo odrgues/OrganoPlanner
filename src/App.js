@@ -237,6 +237,7 @@ function App() {
                     primaryColor={item.corPrimaria}
                     secondaryColor={item.corSecundaria}
                     dayName={item.nome}
+                    allDays={dropdownItems.map((d) => d.nome)}
                     onSaveEdit={(data, taskIdx) => {
                       handleSaveEdit({ ...data, _id: data._id || data.id });
                     }}
