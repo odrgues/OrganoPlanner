@@ -75,3 +75,14 @@
   pointer-events: none;
   transition: filter 0.2s, opacity 0.2s;
 }
+
+.task-card.acinzentado {
+  opacity: 0.5;
+  filter: grayscale(0.8) brightness(0.95);
+  pointer-events: none;
+  transition: filter 0.2s, opacity 0.2s;
+}
+
+.task-card.acinzentado .concluir-btn {
+  display: none;
+}

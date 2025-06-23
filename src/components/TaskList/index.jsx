@@ -52,6 +52,11 @@ const TaskList = ({
                 concluida={task.concluida}
                 id={task.id}
                 className={task.concluida ? "concluida" : ""}
+                onConclude={
+                  !task.concluida && onConclude
+                    ? () => onConclude(idx, task.id)
+                    : undefined
+                }
               />
               <button
                 className="edit-icon-btn"

@@ -139,12 +139,20 @@ function App() {
     setShowForm(false);
   };
 
-  const handleToggleConcludeIdx = (idx) => {
-    setTaskscards((prev) =>
-      prev.map((task, i) =>
-        i === idx ? { ...task, concluida: !task.concluida } : task
-      )
-    );
+  // Substitui a função local por chamada ao backend
+  const handleToggleConcludeIdx = async (idx) => {
+    const task = taskscards[idx];
+    if (!task) return;
+    try {
+      const payload = {
+        ...task,
+        concluida: !task.concluida,
+        _id: task._id || task.id,
+      };
+      await updateTask(task._id || task.id, payload);
+      const updatedTasks = await fetchTasks();
+      setTaskscards(updatedTasks.map(mapTask));
+    } catch (err) {}
   };
 
   useEffect(() => {
