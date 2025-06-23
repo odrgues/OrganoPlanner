@@ -158,9 +158,14 @@ function App() {
   return (
     <div className="App">
       <Banner />
+      {location.pathname === "/" && !showForm && (
+        <h1 className="app-title">Minha Organização</h1>
+      )}
       <div className="add-task-btn-container">
         {!showForm && (
           <Button
+            className="add-task-btn"
+            aria-label="Adicionar Tarefa"
             onClick={() => {
               setShowForm(true);
               setEditMode(false);
@@ -169,7 +174,17 @@ function App() {
               }
             }}
           >
-            Adicionar Tarefa
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="16" cy="16" r="16" fill="none" />
+              <rect x="9" y="15" width="14" height="2" rx="1" fill="#fff" />
+              <rect x="15" y="9" width="2" height="14" rx="1" fill="#fff" />
+            </svg>
           </Button>
         )}
       </div>

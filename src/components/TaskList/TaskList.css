@@ -8,9 +8,12 @@
 
 .task-list h3 {
   font-size: 32px;
-  border-bottom: 4px solid;
+  border-bottom: 4px dotted;
   display: inline-block;
   padding-bottom: 8px;
+  color: #333;
+  text-align: center;
+  width: 100%;
 }
 
 .task-list-title {
@@ -19,7 +22,7 @@
   margin-bottom: 18px;
   border-bottom: 3px solid #e0e0e0;
   padding-bottom: 6px;
-  color: #333;
+  color: #6278f7;
   letter-spacing: 0.5px;
 }
 
@@ -59,18 +62,14 @@
   z-index: 1;
 }
 
-/* Remove sobreposição e cantos arredondados extras */
 .task-card + .task-edit-form-wrapper {
   margin-top: 0;
-}
-
-.task-list {
-  background: var(--secondary-color, #f7f7fa);
 }
 
 .task-list-card-wrapper:hover {
   box-shadow: 0 4px 16px rgba(80, 80, 120, 0.1);
   z-index: 2;
+  border-radius: 10px;
 }
 
 .task-card-edit-wrapper {
@@ -80,7 +79,7 @@
 
 .edit-icon-btn {
   position: absolute;
-  top: 10px;
+  top: 30px;
   right: 10px;
   background: rgba(255, 255, 255, 0.85);
   border: none;

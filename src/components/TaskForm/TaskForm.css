@@ -2,46 +2,49 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 60px auto;
+  margin: 40px auto;
   width: 100%;
-  max-width: 600px;
+  max-width: 420px;
   min-width: 220px;
   min-height: 120px;
   background: #f6f6f6;
-  border-radius: 16px;
+  border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 3vw 3vw;
+  padding: 32px 24px;
   box-sizing: border-box;
 }
 
 .task-form form {
   width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: stretch;
   justify-content: center;
+  gap: 16px;
 }
 
 .task-form button {
-  width: 220px;
+  width: 100%;
   min-width: 80px;
-  max-width: 160px;
-  height: 20px;
-  margin: 10 8px;
+  max-width: 100%;
+  height: 48px;
+  margin: 0 0 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   align-self: center;
-  font-weight: lighter;
+  font-weight: 700;
+  font-size: 20px;
+  border-radius: 10px;
 }
 
 .task-form .button-group {
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 12px;
+  gap: 16px;
+  margin-top: 16px;
 }
 
 .task-form button:hover {

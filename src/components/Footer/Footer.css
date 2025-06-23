@@ -9,7 +9,9 @@
 }
 
 /* Ensure the main app takes at least full viewport height and pushes footer down */
-body, #root, .App {
+body,
+#root,
+.App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,11 +28,15 @@ body, #root, .App {
 }
 
 .footer-links {
-  margin-top: 16px;
+  margin-top: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 16px;
   font-size: 1.1rem;
+  padding-left: 40px;
+  align-items: flex-start;
+  position: relative;
+  top: -10px;
 }
 
 .footer-links a,

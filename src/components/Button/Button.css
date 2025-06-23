@@ -1,15 +1,52 @@
 .button {
   background-color: #825a2c;
-  border-radius: 10px;
+  border-radius: 16px;
   font-weight: 700;
-  font-size: 18px;
-  padding: 32px;
+  font-size: 22px;
+  padding: 20px 48px;
   border: none;
   cursor: pointer;
   color: #fff;
-  margin: 32px 0;
+  margin: 24px 16px 24px 0;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+  display: inline-block;
+  letter-spacing: 0.5px;
 }
 
-.button {
-  transform: scale(1);
+.button:hover {
+  background: #6b4620;
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.15);
+}
+
+.button:active {
+  background: #5a391a;
+}
+
+.add-task-btn {
+  background: #6c7cff;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.15);
+  color: #fff;
+  font-size: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  margin: 32px 0;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.add-task-btn:hover {
+  background: #5a6ad6;
+}
+
+.add-task-btn svg {
+  display: block;
 }

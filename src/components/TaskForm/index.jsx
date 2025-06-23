@@ -34,6 +34,10 @@ const TaskForm = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!titulo || !descricao || !imagemUrl || !categoria) {
+      alert("Preencha todos os campos do formulário.");
+      return;
+    }
     onSubmit({ titulo, descricao, imagemUrl, categoria });
   };
 
