@@ -145,11 +145,16 @@ body,
   }
   .footer {
     background-color: #f3dadb !important;
+    background-image: url("/public/images/fundo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
   .footer-links {
     flex-direction: column;
     align-items: center;
     gap: 4px;
+    margin-top: 8%;
     width: 100%;
     justify-content: center;
     text-align: center;
