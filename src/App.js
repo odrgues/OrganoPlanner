@@ -98,19 +98,18 @@ function App() {
     setShowForm(false);
   };
 
-  const handleToggleConcluir = async (idx, id) => {
+  const handleToggleConcluir = async (id) => {
     try {
-      const taskId =
-        id || taskscards[editTaskIndex]?._id || taskscards[editTaskIndex]?.id;
       const current = taskscards.find(
-        (task) => task.id === taskId || task._id === taskId
+        (task) => task.id === id || task._id === id
       );
+      if (!current) return;
       const payload = {
         ...current,
         concluida: !current.concluida,
-        _id: taskId,
+        _id: current._id || current.id,
       };
-      await updateTask(taskId, payload);
+      await updateTask(current._id || current.id, payload);
       const updatedTasks = await fetchTasks();
       setTaskscards(updatedTasks.map(mapTask));
     } catch (err) {}
@@ -137,22 +136,6 @@ function App() {
     setEditTaskIndex(null);
     setEditMode(false);
     setShowForm(false);
-  };
-
-  // Substitui a função local por chamada ao backend
-  const handleToggleConcludeIdx = async (idx) => {
-    const task = taskscards[idx];
-    if (!task) return;
-    try {
-      const payload = {
-        ...task,
-        concluida: !task.concluida,
-        _id: task._id || task.id,
-      };
-      await updateTask(task._id || task.id, payload);
-      const updatedTasks = await fetchTasks();
-      setTaskscards(updatedTasks.map(mapTask));
-    } catch (err) {}
   };
 
   useEffect(() => {
@@ -250,12 +233,7 @@ function App() {
                       handleSaveEdit({ ...data, _id: data._id || data.id });
                     }}
                     onDelete={handleDeleteTask}
-                    onConclude={(taskIdx) => {
-                      const globalIdx = taskscards.findIndex(
-                        (t, i) => t.categoria === item.nome && i === taskIdx
-                      );
-                      handleToggleConcludeIdx(globalIdx);
-                    }}
+                    onConclude={handleToggleConcluir}
                   />
                 );
               })}
