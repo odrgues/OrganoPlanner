@@ -110,10 +110,19 @@ function App() {
         concluida: !current.concluida,
         _id: taskId,
       };
-      await updateTask(taskId, payload);
+      console.log("Enviando para updateTask:", payload);
+      alert("Enviando para updateTask: " + JSON.stringify(payload));
+      const response = await updateTask(taskId, payload);
+      console.log("Resposta do updateTask:", response);
+      alert("Resposta do updateTask: " + JSON.stringify(response));
       const updatedTasks = await fetchTasks();
+      console.log("Tarefas após update:", updatedTasks);
+      alert("Tarefas após update: " + JSON.stringify(updatedTasks));
       setTaskscards(updatedTasks.map(mapTask));
-    } catch (err) {}
+    } catch (err) {
+      console.error("Erro ao concluir tarefa:", err);
+      alert("Erro ao concluir tarefa: " + err);
+    }
     setEditTaskIndex(null);
     setEditMode(false);
     setShowForm(false);
