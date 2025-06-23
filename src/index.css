@@ -140,6 +140,18 @@ body,
     max-width: 92vw;
   }
 }
+@media (max-width: 700px) {
+  .app-title {
+    font-size: 1.1rem;
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+  .add-task-btn-container {
+    margin-right: 2px;
+    margin-top: 2px;
+    width: 36px;
+  }
+}
 @media (max-width: 600px) {
   .App {
     padding: 0 2vw;

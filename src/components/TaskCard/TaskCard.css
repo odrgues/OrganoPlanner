@@ -86,3 +86,27 @@
 .task-card.acinzentado .concluir-btn {
   display: none;
 }
+
+@media (max-width: 700px) {
+  .task-card {
+    width: 180px;
+    min-width: 120px;
+    max-width: 98vw;
+    padding: 0 2vw;
+  }
+  .task-card img {
+    width: 56px;
+    height: 56px;
+  }
+  .task-card .rodape {
+    padding: 12px 6px 16px 6px;
+  }
+  .task-card .rodape h4 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  .task-card .rodape h5 {
+    font-size: 0.85rem;
+    padding: 0 2px;
+  }
+}

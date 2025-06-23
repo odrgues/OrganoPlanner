@@ -3,11 +3,11 @@
   background-image: url("/public/images/fundo.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover; /* ou 'contain' se preferir */
+  background-size: cover;
   width: 100vw;
-  height: 250px; /* ou ajuste conforme desejar */
+  /* height: 250px; ou ajuste conforme desejar */
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   overflow: hidden;
   position: relative;
@@ -17,4 +17,27 @@
   height: 100%;
   width: auto;
   z-index: 1;
+  margin-left: 0;
+  margin-right: auto;
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .banner {
+    height: 200px !important;
+    min-height: 160px;
+    max-height: 240px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .banner img {
+    height: 100% !important;
+    width: auto;
+    max-width: 100vw;
+    min-width: 0;
+    object-fit: contain;
+    margin-left: 0;
+    margin-right: auto;
+    display: block;
+  }
 }

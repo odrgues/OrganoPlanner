@@ -18,11 +18,11 @@
 }
 
 .task-list-title {
-  font-size: 01.5rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   border-bottom: 3px solid #e0e0e0;
-  padding-bottom: 6px;
+  padding-bottom: 2px;
   letter-spacing: 0.5px;
 }
 
@@ -85,6 +85,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .task-list {
+    padding: 4px 2vw;
+    margin: 8px 0 16px 0;
+  }
+  .task-list-title {
+    font-size: 0.55rem;
+    margin-bottom: 4px;
+    padding-bottom: 1px;
+  }
+  .task-list-cards {
+    gap: 8px;
   }
 }
 
