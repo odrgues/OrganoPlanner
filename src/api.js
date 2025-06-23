@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/tarefa";
+const API_URL = "https://organoplanner-backend.onrender.com";
 
 export async function fetchTasks() {
   const response = await fetch(API_URL);
