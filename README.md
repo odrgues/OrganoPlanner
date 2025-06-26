@@ -12,8 +12,8 @@ Organo Planner é um planner semanal desenvolvido em React, com backend integrad
 - **Integração total com backend**: Todas as operações refletem imediatamente no backend e na interface.
 
 
-## Design Figma do Projeto
-https://www.figma.com/proto/cWzrT7FnzgYaQuRieZaxMe/OrganoPlanner?node-id=134-128&p=f&t=RgwbHmjGdPYhCLz6-0&scaling=min-zoom&content-scaling=fixed&page-id=134%3A128&starting-point-node-id=134%3A143
+## Figma
+O design do projeto foi seguido conforme o protótipo no Figma: [Protótipo Figma - CodeConnect](https://www.figma.com/proto/cWzrT7FnzgYaQuRieZaxMe/OrganoPlanner?node-id=134-128&p=f&t=RgwbHmjGdPYhCLz6-0&scaling=min-zoom&content-scaling=fixed&page-id=134%3A128&starting-point-node-id=134%3A143)
 
 
 ## Estrutura do Projeto
