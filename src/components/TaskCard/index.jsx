@@ -17,7 +17,12 @@ const TaskCard = ({
       style={{ cursor: "pointer" }}
     >
       <div className="cabecalho" style={{ backgroundColor: primaryColor }}>
-        <img src={imagemUrl} alt={titulo} className="task-image" />
+        <img
+          src={imagemUrl}
+          alt={titulo}
+          className="task-image"
+          onError={(e) => (e.target.src = "/images/imagem-padrao.jpeg")}
+        />
       </div>
       <div className="rodape">
         <h4>{titulo}</h4>
